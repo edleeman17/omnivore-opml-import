@@ -43,7 +43,7 @@ const postToOmnivore = (feed) => {
             'Authorization': process.env.OMNIVORE_API_KEY
         }
     }
-    var requestData = buildRequest(folder, xmlurl);
+    var requestData = buildRequest(title, folder, xmlurl);
 
     const req = https.request(options, (res) => {
         res.on('data', (d) => {
@@ -80,12 +80,13 @@ const checkProvidedEnvironmentVariables = () => {
     return true;
 }
 
-const buildRequest = (folder, xmlurl) => {
+const buildRequest = (title, folder, xmlurl) => {
     return `
     {
         "query": "mutation Subscribe($input: SubscribeInput!) { subscribe(input: $input) {... on SubscribeSuccess {subscriptions {id}}... on SubscribeError {errorCodes}}}",
         "variables": {
             "input": {
+                "name": "${title}",
                 "url": "${xmlurl}",
                 "subscriptionType": "RSS"
             }
