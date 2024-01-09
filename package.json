@@ -1,0 +1,16 @@
+{
+  "name": "omnivore-opml-import",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "OPML import helper for Omnivore",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "import": "node --env-file=.env index.js"
+  },
+  "author": "Ed Leeman",
+  "license": "MIT",
+  "dependencies": {
+    "opmlparser": "^0.8.0"
+  }
+}
