@@ -47,6 +47,7 @@ const postToOmnivore = (feed) => {
 
     const req = https.request(options, (res) => {
         res.on('data', (d) => {
+            console.log(d.toString());
             console.log(`:: Success :: Posted ${title} -> ${xmlurl} to Omnivore`);
         })
     })
@@ -86,7 +87,6 @@ const buildRequest = (title, folder, xmlurl) => {
         "query": "mutation Subscribe($input: SubscribeInput!) { subscribe(input: $input) {... on SubscribeSuccess {subscriptions {id}}... on SubscribeError {errorCodes}}}",
         "variables": {
             "input": {
-                "name": "${title}",
                 "url": "${xmlurl}",
                 "subscriptionType": "RSS"
             }
