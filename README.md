@@ -11,7 +11,7 @@ Omnivore OPML Import is a simple script to import OPML files into Omnivore using
 
 ## Installation & Usage
 1. Clone this repository
-2. Copy OPML files into `./import` directory with a `.xml` file extension
+2. Copy OPML files into `./import` directory with an `.opml` or `.xml` file extension
 3. Add [Omnivore API key](https://omnivore.app/settings/api) to `.env` file (copy example from `.env.sample`)
 4. Build docker image: `docker build -t omnivore-opml-import .`
 5. Run docker image: `docker run -it --rm omnivore-opml-import`
@@ -19,3 +19,4 @@ Omnivore OPML Import is a simple script to import OPML files into Omnivore using
 ## Developing Locally
 1. Clone this repository
 2. Use `.devcontainer` to develop locally in VSCode as this will install all required dependencies
+3. Execute `npm run import`

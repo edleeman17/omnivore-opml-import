@@ -9,7 +9,7 @@ readdir('./import', (err, files) => {
     if (err) throw err;
 
     files.forEach(file => {
-        if (!file.endsWith('.xml')) return;
+        if (!file.endsWith('.xml') || !file.endsWith('.opml')) return;
         console.log(`Parsing ${file}`);
         createReadStream(`./import/${file}`).pipe(opmlparser);
     });
