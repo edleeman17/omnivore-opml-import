@@ -9,7 +9,7 @@ readdir('./import', (err, files) => {
     if (err) throw err;
 
     files.forEach(file => {
-        if (!file.endsWith('.xml') || !file.endsWith('.opml')) return;
+        if (!file.endsWith('.xml') && !file.endsWith('.opml')) return;
         console.log(`Parsing ${file}`);
         createReadStream(`./import/${file}`).pipe(opmlparser);
     });
@@ -22,7 +22,7 @@ opmlparser.on('readable', function () {
     while (feed = stream.read()) {
         if (feed.xmlurl === undefined) continue; // Folder
 
-        postToOmnivore(feed);
+        // postToOmnivore(feed);
     }
 });
 
