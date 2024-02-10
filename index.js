@@ -22,7 +22,7 @@ opmlparser.on('readable', function () {
     while (feed = stream.read()) {
         if (feed.xmlurl === undefined) continue; // Folder
 
-        // postToOmnivore(feed);
+        postToOmnivore(feed);
     }
 });
 
